@@ -6,57 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <h1>Tic-Tac-Toe</h1>
-    <input type="button" submit" id="playAgain">Play Again</input>
-    <section class="playerOne">
-        <h1>Player One</h1>
-        <form class="formPlayerOne">
-            <p>Name:</p>
-            <input type="text" id="nameP1" name="name1" value="Enter Your Name Here">
-            <br><br>
-            <input type="submit" id="submit1" value="Submit">
-        </form>
-        <div class="pieces">
-            <p id="message1">Click and drag your game piece to the board.</p>
-            <div id="p1Piece1">X</div>
-            <div id="p1Piece2">X</div>
-            <div id="p1Piece3">X</div>
-            <div id="p1Piece4">X</div>
-            <div id="p1Piece5">X</div>
+
+    <div class="container">
+        <div class="header">
+            <div class="headerGrid">
+                <h1>Tic-Tac-Toe</h1>
+                <button type="button" id="playAgain ">Play Again</button>
+            </div>
+
         </div>
 
-    </section>
-    <section class="playerTwo">
-        <h1>Player Two</h1>
-        <form class="formPlayerTwo">
-            <p>Name:</p>
-            <input type="text" id="nameP1" name="name1" value="Enter Your Name Here">
-            <br><br>
-            <input type="submit" id="submit2" value="Submit">
-        </form>
-        <div class="pieces">
-            <p id="message2">Click and drag your game piece to the board.</p>
-            <div id="p1Piece1">X</div>
-            <div id="p1Piece2">X</div>
-            <div id="p1Piece3">X</div>
-            <div id="p1Piece4">X</div>
-            <div id="p1Piece5">X</div>
-        </div>
-    </section>
-    <section class="gameBoard">
-        <div id="box1">1</div>
-        <div id="box2">2</div>
-        <div id="box3">3</div>
-        <div id="box4">4</div>
-        <div id="box5">5</div>
-        <div id="box6">6</div>
-        <div id="box7">7</div>
-        <div id="box8">8</div>
-        <div id="box9">9</div>
-    </section>
+        <section class="playerOne ">
+            <h1>Player One</h1>
+            <form class="formPlayerOne ">
+                <p>Name:</p>
+                <input type="text " id="nameP1 " name="name1 " value="Enter Your Name Here ">
+                <br><br>
+                <input type="submit " id="submit1 " value="Submit ">
+            </form>
+            <div class="pieces ">
+                <p id="message1 ">Click and drag your game piece to the board.</p>
+                <div id="p1Piece1 ">X</div>
+                <div id="p1Piece2 ">X</div>
+                <div id="p1Piece3 ">X</div>
+                <div id="p1Piece4 ">X</div>
+                <div id="p1Piece5 ">X</div>
+            </div>
+
+        </section>
+        <section class="playerTwo ">
+            <h1>Player Two</h1>
+            <form class="formPlayerTwo ">
+                <p>Name:</p>
+                <input type="text " id="nameP1 " name="name1 " value="Enter Your Name Here ">
+                <br><br>
+                <input type="submit " id="submit2 " value="Submit ">
+            </form>
+            <div class="pieces ">
+                <p id="message2 ">Click and drag your game piece to the board.</p>
+                <div id="p1Piece1 ">O</div>
+                <div id="p1Piece2 ">O</div>
+                <div id="p1Piece3 ">O</div>
+                <div id="p1Piece4 ">O</div>
+                <div id="p1Piece5 ">O</div>
+            </div>
+        </section>
+        <section class="gameBoard ">
+            <div class="gameRow">
+                <canvas id="box1"></canvas>
+                <canvas id="box2"></canvas>
+                <canvas id="box3"></canvas>
+            </div>
+            <div class="gameRow">
+                <canvas id="box4"></canvas>
+                <canvas id="box5"></canvas>
+                <canvas id="box6"></canvas>
+            </div>
+            <div class="gameRow">
+                <canvas id="box7"></canvas>
+                <canvas id="box8"></canvas>
+                <canvas id="box9"></canvas>
+            </div>
+
+        </section>
+
+        <footer class="footer ">
+            <p>Tic Tac Toe game written by Rachel Ciarlante</p>
+        </footer>
+
+    </div>
 
 </body>
 

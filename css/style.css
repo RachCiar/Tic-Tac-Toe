@@ -1,0 +1,70 @@
+/* Grid for the whole page */
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-rows: 1fr 600px 20%;
+    grid-template-areas: "header header header" "player1 gameBoard player2" "footer footer footer";
+    grid-gap: 5px;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+.playerOne {
+    grid-area: player1;
+    background-color: lavender;
+    padding-left: 1em;
+}
+
+.playerTwo {
+    grid-area: player2;
+    background-color: lightblue;
+    padding-left: 1em;
+}
+
+.gameBoard {
+    grid-area: gameBoard;
+    /* background-color: pink; */
+}
+
+.footer {
+    grid-area: footer;
+    background-color: blue;
+}
+
+
+/*-------Grid for the game board-------- */
+
+.gameRow {
+    display: flex;
+    align-items: center;
+    height: 33%;
+    justify-content: space-around;
+}
+
+canvas {
+    width: 33%;
+    height: 200px;
+    border: 2px solid black;
+}
+
+#box1,
+#box3,
+#box5,
+#box7,
+#box9 {
+    background-color: red;
+}
+
+#box2,
+#box4,
+#box6,
+#box8 {
+    background-color: white;
+}
