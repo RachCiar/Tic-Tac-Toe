@@ -1,11 +1,11 @@
-/* Grid for the whole page */
+/*for the whole page */
 
 .container {
     display: grid;
     grid-template-columns: 25% 1fr 25%;
     grid-template-rows: 1fr 600px 20%;
     grid-template-areas: "header header header" "player1 gameBoard player2" "footer footer footer";
-    grid-gap: 5px;
+    grid-gap: 10px;
 }
 
 .header {
@@ -35,23 +35,34 @@
 
 .footer {
     grid-area: footer;
-    background-color: blue;
+    background: #1abc9c;
+    color: white;
+    padding-left: 2em;
 }
 
 
-/*-------Grid for the game board-------- */
+/*-------Flexbox for the game board-------- */
 
 .gameRow {
     display: flex;
     align-items: center;
     height: 33%;
-    justify-content: space-around;
+    flex-grow: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 1em;
+    flex-direction: column;
+    /* align-content: flex-start; */
+    align-content: space-around;
+    /* NEW */
 }
 
-canvas {
+.gameRow div {
     width: 33%;
     height: 200px;
     border: 2px solid black;
+    text-align: center;
+    justify-content: center;
 }
 
 #box1,
@@ -59,12 +70,179 @@ canvas {
 #box5,
 #box7,
 #box9 {
-    background-color: red;
+    background-color: lavender;
 }
 
 #box2,
 #box4,
 #box6,
 #box8 {
-    background-color: white;
+    background-color: lightblue;
 }
+
+
+/* ------Header Style---------- */
+
+.button {
+    background-color: rgb(185, 79, 235);
+    border: 1px solid #1f1e1e;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+.button:hover {
+    background-color: rgb(107, 223, 252);
+    color: white;
+}
+
+.button:active {
+    background-color: #7764e6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#playAgain {
+    margin-bottom: 1em;
+}
+
+
+/*---------player one and player two section------------ */
+
+.playerOne h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+}
+
+.playerTwo h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+}
+
+.formPlayerOne p {
+    font-size: 30px;
+    margin: 0;
+}
+
+.formPlayerTwo p {
+    font-size: 30px;
+    margin: 0;
+}
+
+input {
+    width: 90%;
+    height: 50px;
+    padding: 12px 20px;
+    margin-left: 4px;
+    margin-right: 0 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#message1,
+#message2 {
+    font-size: 20px;
+    padding: 0px;
+    margin: 0;
+}
+
+
+/*----------Grid for player one---------- */
+
+.pieces1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-areas: "mes mes mes""p1 p2 p3" "p4 p5 p6";
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#message1 {
+    grid-area: mes;
+}
+
+#p1Piece1 {
+    grid-area: p1;
+}
+
+#p1Piece2 {
+    grid-area: p2;
+}
+
+#p1Piece3 {
+    grid-area: p3;
+}
+
+#p1Piece4 {
+    grid-area: p4;
+}
+
+#p1Piece5 {
+    grid-area: p5;
+}
+
+#p1Piece6 {
+    grid-area: p6;
+}
+
+
+/*------------Grid for player two-------- */
+
+.pieces2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-areas: "mes mes mes""p1 p2 p3" "p4 p5 p6";
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#message2 {
+    grid-area: mes;
+}
+
+#p2Piece1 {
+    grid-area: p1;
+}
+
+#p2Piece2 {
+    grid-area: p2;
+}
+
+#p2Piece3 {
+    grid-area: p3;
+}
+
+#p2Piece4 {
+    grid-area: p4;
+}
+
+#p2Piece5 {
+    grid-area: p5;
+}
+
+#p2Piece6 {
+    grid-area: p6;
+}
+
+
+/* .pic {
+    height: 87px;
+    width: 150px;
+} */
