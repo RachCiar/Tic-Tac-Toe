@@ -77,7 +77,6 @@ window.onload = function() {
     //Add event listener to the play again button and clear the board
 
     document.querySelector('#playAgain').addEventListener("click", function() {
-
         location.reload();
     });
     //--------------MAKING BOXES DRAGGABLE-----------------
