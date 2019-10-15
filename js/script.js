@@ -45,7 +45,6 @@ window.onload = function() {
 
     }
 
-
     // Player Two enters name
     // Player Two hits submit
     // When player submits name, the name appears inplace of "Player Two"
@@ -74,6 +73,13 @@ window.onload = function() {
         const hidePlayAgainButton = document.querySelector('#playAgain');
         hidePlayAgainButton.style.display = 'inline';
     }
+
+    //Add event listener to the play again button and clear the board
+
+    document.querySelector('#playAgain').addEventListener("click", function() {
+
+        location.reload();
+    });
     //--------------MAKING BOXES DRAGGABLE-----------------
     //https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/
     let dragged; // Keeps track of what's being dragged - we'll use this later! 
@@ -109,6 +115,7 @@ window.onload = function() {
     }
 
     //when dropping boxes in another container
+    //Add event listeners for dragging and dropping
 
     const dropZone = document.querySelector('.gameBoard');
     dropZone.addEventListener('drop', onDrop);
@@ -153,11 +160,14 @@ window.onload = function() {
             console.log("div =", div);
             const boxid = div.getAttribute('id');
             console.log("id = ", boxid);
-            checkAnswer(piece, boxid);
+            //Run the checkAnswer() function.
+            checkAnswer();
         }
     }
+    //-------------checking the answer and assigning variables to the x's and o's---------
 
-    function checkAnswer(piece, boxid) {
+    function checkAnswer() {
+        //Set the imgBoxes to null
         let imgBox1 = null;
         let imgBox2 = null;
         let imgBox3 = null;
@@ -167,7 +177,7 @@ window.onload = function() {
         let imgBox7 = null;
         let imgBox8 = null;
         let imgBox9 = null;
-
+        // Assign the value of the boxes to the id element
         let box1 = document.getElementById('box1');
         let box2 = document.getElementById('box2');
         let box3 = document.getElementById('box3');
@@ -177,7 +187,8 @@ window.onload = function() {
         let box7 = document.getElementById('box7');
         let box8 = document.getElementById('box8');
         let box9 = document.getElementById('box9');
-
+        //Check to see if there is a child element in the box. If ther is, assign the imgBox to the child eleent
+        //Give it an x or an 0
         if (box1 && box1.firstElementChild) {
             imgBox1 = box1.firstElementChild.getAttribute('class');
             console.log("imgBox1", imgBox1);
@@ -215,6 +226,7 @@ window.onload = function() {
             imgBox9 = box9.firstElementChild.getAttribute('class');
             console.log("imgBox9", imgBox9);
         }
+        //With all variables assigned, compare if any match up for x
         if (((imgBox1 && imgBox1 === "x") && (imgBox2 && imgBox2 === "x") && (imgBox3 && imgBox3 === "x")) ||
             ((imgBox4 && imgBox4 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox6 && imgBox6 === "x")) ||
             ((imgBox7 && imgBox7 === "x") && (imgBox8 && imgBox8 === "x") && (imgBox9 && imgBox9 === "x")) ||
@@ -224,14 +236,14 @@ window.onload = function() {
             ((imgBox1 && imgBox1 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox9 && imgBox9 === "x")) ||
             ((imgBox3 && imgBox3 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox7 && imgBox7 === "x"))) {
 
-            //display winner div
+            //display winner div for x
             var winner = document.querySelector(".winner");
             winner.style.display = "block";
             const changeName = document.getElementById('nameP1').value;
             document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
         }
-
+        // if all the variables match up for o
         if (((imgBox1 && imgBox1 === "o") && (imgBox2 && imgBox2 === "o") && (imgBox3 && imgBox3 === "o")) ||
             ((imgBox4 && imgBox4 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox6 && imgBox6 === "o")) ||
             ((imgBox7 && imgBox7 === "o") && (imgBox8 && imgBox8 === "o") && (imgBox9 && imgBox9 === "o")) ||
@@ -241,7 +253,7 @@ window.onload = function() {
             ((imgBox1 && imgBox1 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox9 && imgBox9 === "o")) ||
             ((imgBox3 && imgBox3 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox7 && imgBox7 === "o"))) {
 
-            //display winner div
+            //display winner div for o
             var winner = document.querySelector(".winner");
             winner.style.display = "block";
             const changeName = document.getElementById('nameP2').value;
