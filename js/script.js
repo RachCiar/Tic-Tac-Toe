@@ -2,6 +2,7 @@ window.onload = function() {
 
     let turn = 1;
 
+
     // Hide playing pieses for class=pieces1 and class=pieces2
     function hidePlayingPieces() {
         document.querySelectorAll('.pieces1').forEach(function(el) {
@@ -27,7 +28,8 @@ window.onload = function() {
         const changeName = document.getElementById('nameP1').value;
         document.getElementById("playOne").innerHTML = changeName;
         hideFormForPlayerOne();
-        return changeName;
+
+
     });
     // class formPlayerOne dissapear
     function hideFormForPlayerOne() {
@@ -52,7 +54,7 @@ window.onload = function() {
         const changeName1 = document.getElementById('nameP2').value;
         document.getElementById("playTwo").innerHTML = changeName1;
         hideFormForPlayerTwo();
-        return changeName1;
+
     });
     // class formPlayerTwo dissapear
     function hideFormForPlayerTwo() {
@@ -151,122 +153,110 @@ window.onload = function() {
             console.log("div =", div);
             const boxid = div.getAttribute('id');
             console.log("id = ", boxid);
-
-            checkAnswer();
+            checkAnswer(piece, boxid);
         }
     }
 
-    function checkAnswer() {
-
+    function checkAnswer(piece, boxid) {
+        let imgBox1 = null;
+        let imgBox2 = null;
+        let imgBox3 = null;
+        let imgBox4 = null;
+        let imgBox5 = null;
+        let imgBox6 = null;
+        let imgBox7 = null;
+        let imgBox8 = null;
+        let imgBox9 = null;
 
         let box1 = document.getElementById('box1');
-        let imgBox1 = box1.firstElementChild.getAttribute('class');
         let box2 = document.getElementById('box2');
-        let imgBox2 = box2.firstElementChild.getAttribute('class');
         let box3 = document.getElementById('box3');
-        let imgBox3 = box3.firstElementChild.getAttribute('class');
         let box4 = document.getElementById('box4');
-        let imgBox4 = box4.firstElementChild.getAttribute('class');
         let box5 = document.getElementById('box5');
-        let imgBox5 = box5.firstElementChild.getAttribute('class');
         let box6 = document.getElementById('box6');
-        let imgBox6 = box6.firstElementChild.getAttribute('class');
         let box7 = document.getElementById('box7');
-        let imgBox7 = box7.firstElementChild.getAttribute('class');
         let box8 = document.getElementById('box8');
-        let imgBox8 = box8.firstElementChild.getAttribute('class');
         let box9 = document.getElementById('box9');
-        let imgBox9 = box9.firstElementChild.getAttribute('class');
 
-        if (imgBox1 === "x" && imgBox2 === "x" && imgBox3 === "x" ||
-            imgBox4 === "x" && imgBox5 === "x" && imgBox6 === "x" ||
-            imgBox7 === "x" && imgBox8 === "x" && imgBox9 === "x" ||
-            imgBox1 === "x" && imgBox4 === "x" && imgBox7 === "x" ||
-            imgBox2 === "x" && imgBox5 === "x" && imgBox8 === "x" ||
-            imgBox3 === "x" && imgBox6 === "x" && imgBox9 === "x" ||
-            imgBox1 === "x" && imgBox5 === "x" && imgBox9 === "x" ||
-            imgBox3 === "x" && imgBox5 === "x" && imgBox7 === "x") {
+        if (box1 && box1.firstElementChild) {
+            imgBox1 = box1.firstElementChild.getAttribute('class');
+            console.log("imgBox1", imgBox1);
+
+        }
+        if (box2 && box2.firstElementChild) {
+            imgBox2 = box2.firstElementChild.getAttribute('class');
+            console.log("imgBox2", imgBox2);
+        }
+        if (box3 && box3.firstElementChild) {
+            imgBox3 = box3.firstElementChild.getAttribute('class');
+            console.log("imgBox3", imgBox3);
+        }
+        if (box4 && box4.firstElementChild) {
+            imgBox4 = box4.firstElementChild.getAttribute('class');
+            console.log("imgBox4", imgBox4);
+        }
+        if (box5 && box5.firstElementChild) {
+            imgBox5 = box5.firstElementChild.getAttribute('class');
+            console.log("imgBox5", imgBox5);
+        }
+        if (box6 && box6.firstElementChild) {
+            imgBox6 = box6.firstElementChild.getAttribute('class');
+            console.log("imgBox6", imgBox6);
+        }
+        if (box7 && box7.firstElementChild) {
+            imgBox7 = box7.firstElementChild.getAttribute('class');
+            console.log("imgBox7", imgBox7);
+        }
+        if (box8 && box8.firstElementChild) {
+            imgBox8 = box8.firstElementChild.getAttribute('class');
+            console.log("imgBox8", imgBox8);
+        }
+        if (box9 && box9.firstElementChild) {
+            imgBox9 = box9.firstElementChild.getAttribute('class');
+            console.log("imgBox9", imgBox9);
+        }
+        if (((imgBox1 && imgBox1 === "x") && (imgBox2 && imgBox2 === "x") && (imgBox3 && imgBox3 === "x")) ||
+            ((imgBox4 && imgBox4 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox6 && imgBox6 === "x")) ||
+            ((imgBox7 && imgBox7 === "x") && (imgBox8 && imgBox8 === "x") && (imgBox9 && imgBox9 === "x")) ||
+            ((imgBox1 && imgBox1 === "x") && (imgBox4 && imgBox4 === "x") && (imgBox7 && imgBox7 === "x")) ||
+            ((imgBox2 && imgBox2 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox8 && imgBox8 === "x")) ||
+            ((imgBox3 && imgBox3 === "x") && (imgBox6 && imgBox6 === "x") && (imgBox9 && imgBox9 === "x")) ||
+            ((imgBox1 && imgBox1 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox9 && imgBox9 === "x")) ||
+            ((imgBox3 && imgBox3 === "x") && (imgBox5 && imgBox5 === "x") && (imgBox7 && imgBox7 === "x"))) {
 
             //display winner div
             var winner = document.querySelector(".winner");
-            if (winner.style.display === "none") {
-                winner.style.display = "block";
-                document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
-            } else {
-                x.style.display = "none";
-            }
+            winner.style.display = "block";
+            const changeName = document.getElementById('nameP1').value;
+            document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
         }
 
-        if (imgBox1 === "o" && imgBox2 === "o" && imgBox3 === "o" ||
-            imgBox4 === "o" && imgBox5 === "o" && imgBox6 === "o" ||
-            imgBox7 === "o" && imgBox8 === "o" && imgBox9 === "o" ||
-            imgBox1 === "o" && imgBox4 === "o" && imgBox7 === "o" ||
-            imgBox2 === "o" && imgBox5 === "o" && imgBox8 === "o" ||
-            imgBox3 === "o" && imgBox6 === "o" && imgBox9 === "o" ||
-            imgBox1 === "o" && imgBox5 === "o" && imgBox9 === "o" ||
-            imgBox3 === "o" && imgBox5 === "o" && imgBox7 === "o") {
+        if (((imgBox1 && imgBox1 === "o") && (imgBox2 && imgBox2 === "o") && (imgBox3 && imgBox3 === "o")) ||
+            ((imgBox4 && imgBox4 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox6 && imgBox6 === "o")) ||
+            ((imgBox7 && imgBox7 === "o") && (imgBox8 && imgBox8 === "o") && (imgBox9 && imgBox9 === "o")) ||
+            ((imgBox1 && imgBox1 === "o") && (imgBox4 && imgBox4 === "o") && (imgBox7 && imgBox7 === "o")) ||
+            ((imgBox2 && imgBox2 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox8 && imgBox8 === "o")) ||
+            ((imgBox3 && imgBox3 === "o") && (imgBox6 && imgBox6 === "o") && (imgBox9 && imgBox9 === "o")) ||
+            ((imgBox1 && imgBox1 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox9 && imgBox9 === "o")) ||
+            ((imgBox3 && imgBox3 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox7 && imgBox7 === "o"))) {
 
             //display winner div
             var winner = document.querySelector(".winner");
-            if (winner.style.display === "none") {
-                winner.style.display = "block";
-                document.querySelector(".text").innerHTML = `${changeName1} WINS!!!`;
-            } else {
-                x.style.display = "none";
-            }
+            winner.style.display = "block";
+            const changeName = document.getElementById('nameP2').value;
+            document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
         }
-        //if statement for "0" CAT GAME!
+        //  if statement for "0" CAT GAME!
         if (turn === 9) {
             //Display winner div with tie text
-            if (winner.style.display === "none") {
-                winner.style.display = "block";
-                document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
-            } else {
-                x.style.display = "none";
-            }
+            var winner = document.querySelector(".winner");
+            winner.style.display = "block";
+            document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
         }
+
         turn++;
 
     };
-
-    // If both players have hit the submit button
-    // Both P1 and P2’s playing pieces appear 
-    // Change the class from none to display
-
-    // A message appears on each side of the  screen to click and drag piece to board
-
-    // When the P1 clicks and drags the piece to the board, the message disappears
-
-    // When the P2 clicks and drags the piece to the board, the message disappears
-
-    // As P1 is choosing a piece, use a hoover effect to make the square light up
-    // When P1 releases the click, the play is entered and it is P2’s turn.
-
-    // As P1 is choosing a piece, use a hover effect to make the square light up
-    // When P2 releases the click, the play is entered and it is P1’s turn.
-
-    // When it is P1’s turn, Their side of the board lights up.
-    // P2’s side of the board gets darker
-
-    // When it is P2’s turn, Their side of the board lights up.
-    // P1’s side of the board gets darker
-
-    // If a player tries to play out of turn, their playing piece will return to it’s original spot 
-    // An alert will appear that they can’t play out of turn.
-
-    // When someone wins, the three boxes change color and a large message of “Player ___ Wins!” Pops up.
-    // If it is a draw, a picture of a cat pops up
-    // There is a play again button that resets the player peaces, but not the names of the players.
-
-    // The solution:
-    // Add an event listener to the boxes that runs a solution function when the mouse is released
-    // In the function, run a switch statement that  checks to see if the boxes match
-    // If they match, it is a win
-    // A message pops up that player___ won!
-
-    // If they don’t match
-    // Continue the game
-
-};
+}
