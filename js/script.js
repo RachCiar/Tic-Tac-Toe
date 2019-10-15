@@ -1,5 +1,6 @@
 window.onload = function() {
 
+    let turn = 1;
 
     // Hide playing pieses for class=pieces1 and class=pieces2
     function hidePlayingPieces() {
@@ -26,6 +27,7 @@ window.onload = function() {
         const changeName = document.getElementById('nameP1').value;
         document.getElementById("playOne").innerHTML = changeName;
         hideFormForPlayerOne();
+        return changeName;
     });
     // class formPlayerOne dissapear
     function hideFormForPlayerOne() {
@@ -47,9 +49,10 @@ window.onload = function() {
     // When player submits name, the name appears inplace of "Player Two"
     document.querySelector("#submit2").addEventListener("click", function(e) {
         e.preventDefault();
-        const changeName = document.getElementById('nameP2').value;
-        document.getElementById("playTwo").innerHTML = changeName;
+        const changeName1 = document.getElementById('nameP2').value;
+        document.getElementById("playTwo").innerHTML = changeName1;
         hideFormForPlayerTwo();
+        return changeName1;
     });
     // class formPlayerTwo dissapear
     function hideFormForPlayerTwo() {
@@ -74,9 +77,14 @@ window.onload = function() {
     let dragged; // Keeps track of what's being dragged - we'll use this later! 
 
     // Adding event listeners
-    const gamePieces = document.querySelectorAll('.pieces');
+    const gamePieces = document.querySelector('.pieces1');
     gamePieces.addEventListener('dragstart', onDragStart);
     gamePieces.addEventListener('dragend', onDragEnd);
+
+
+    const gamePieces2 = document.querySelector('.pieces2');
+    gamePieces2.addEventListener('dragstart', onDragStart);
+    gamePieces2.addEventListener('dragend', onDragEnd);
 
 
     function onDragStart(event) {
@@ -135,8 +143,94 @@ window.onload = function() {
             dragged.parentNode.removeChild(dragged);
             dragged.style.opacity = '';
             target.appendChild(dragged);
+            console.log(dragged);
+            //assign the value of the dragged item.
+            const piece = dragged.getAttribute('class');
+            console.log("piece = ", piece);
+            const div = dragged.closest("div");
+            console.log("div =", div);
+            const boxid = div.getAttribute('id');
+            console.log("id = ", boxid);
+
+            checkAnswer();
         }
     }
+
+    function checkAnswer() {
+
+
+        let box1 = document.getElementById('box1');
+        let imgBox1 = box1.firstElementChild.getAttribute('class');
+        let box2 = document.getElementById('box2');
+        let imgBox2 = box2.firstElementChild.getAttribute('class');
+        let box3 = document.getElementById('box3');
+        let imgBox3 = box3.firstElementChild.getAttribute('class');
+        let box4 = document.getElementById('box4');
+        let imgBox4 = box4.firstElementChild.getAttribute('class');
+        let box5 = document.getElementById('box5');
+        let imgBox5 = box5.firstElementChild.getAttribute('class');
+        let box6 = document.getElementById('box6');
+        let imgBox6 = box6.firstElementChild.getAttribute('class');
+        let box7 = document.getElementById('box7');
+        let imgBox7 = box7.firstElementChild.getAttribute('class');
+        let box8 = document.getElementById('box8');
+        let imgBox8 = box8.firstElementChild.getAttribute('class');
+        let box9 = document.getElementById('box9');
+        let imgBox9 = box9.firstElementChild.getAttribute('class');
+
+        if (imgBox1 === "x" && imgBox2 === "x" && imgBox3 === "x" ||
+            imgBox4 === "x" && imgBox5 === "x" && imgBox6 === "x" ||
+            imgBox7 === "x" && imgBox8 === "x" && imgBox9 === "x" ||
+            imgBox1 === "x" && imgBox4 === "x" && imgBox7 === "x" ||
+            imgBox2 === "x" && imgBox5 === "x" && imgBox8 === "x" ||
+            imgBox3 === "x" && imgBox6 === "x" && imgBox9 === "x" ||
+            imgBox1 === "x" && imgBox5 === "x" && imgBox9 === "x" ||
+            imgBox3 === "x" && imgBox5 === "x" && imgBox7 === "x") {
+
+            //display winner div
+            var winner = document.querySelector(".winner");
+            if (winner.style.display === "none") {
+                winner.style.display = "block";
+                document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
+            } else {
+                x.style.display = "none";
+            }
+
+        }
+
+        if (imgBox1 === "o" && imgBox2 === "o" && imgBox3 === "o" ||
+            imgBox4 === "o" && imgBox5 === "o" && imgBox6 === "o" ||
+            imgBox7 === "o" && imgBox8 === "o" && imgBox9 === "o" ||
+            imgBox1 === "o" && imgBox4 === "o" && imgBox7 === "o" ||
+            imgBox2 === "o" && imgBox5 === "o" && imgBox8 === "o" ||
+            imgBox3 === "o" && imgBox6 === "o" && imgBox9 === "o" ||
+            imgBox1 === "o" && imgBox5 === "o" && imgBox9 === "o" ||
+            imgBox3 === "o" && imgBox5 === "o" && imgBox7 === "o") {
+
+            //display winner div
+            var winner = document.querySelector(".winner");
+            if (winner.style.display === "none") {
+                winner.style.display = "block";
+                document.querySelector(".text").innerHTML = `${changeName1} WINS!!!`;
+            } else {
+                x.style.display = "none";
+            }
+
+        }
+        //if statement for "0" CAT GAME!
+        if (turn === 9) {
+            //Display winner div with tie text
+            if (winner.style.display === "none") {
+                winner.style.display = "block";
+                document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        turn++;
+
+    };
+
     // If both players have hit the submit button
     // Both P1 and P2’s playing pieces appear 
     // Change the class from none to display
