@@ -241,6 +241,11 @@ window.onload = function() {
             const changeName = document.getElementById('nameP1').value;
             document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
+        } else if (turn === 9) {
+            //Display winner div with tie text
+            var winner = document.querySelector(".winner");
+            winner.style.display = "block";
+            document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
         }
         // if all the variables match up for o
         if (((imgBox1 && imgBox1 === "o") && (imgBox2 && imgBox2 === "o") && (imgBox3 && imgBox3 === "o")) ||
@@ -260,7 +265,7 @@ window.onload = function() {
 
         }
         //  if statement for "0" CAT GAME!
-        if (turn === 9) {
+        else if (turn === 9) {
             //Display winner div with tie text
             var winner = document.querySelector(".winner");
             winner.style.display = "block";
