@@ -241,28 +241,29 @@ window.onload = function() {
             const changeName = document.getElementById('nameP1').value;
             document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
-        } else if (turn === 9) {
-            //Display winner div with tie text
-            var winner = document.querySelector(".winner");
-            winner.style.display = "block";
-            document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
-        }
-        // if all the variables match up for o
-        if (((imgBox1 && imgBox1 === "o") && (imgBox2 && imgBox2 === "o") && (imgBox3 && imgBox3 === "o")) ||
-            ((imgBox4 && imgBox4 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox6 && imgBox6 === "o")) ||
-            ((imgBox7 && imgBox7 === "o") && (imgBox8 && imgBox8 === "o") && (imgBox9 && imgBox9 === "o")) ||
-            ((imgBox1 && imgBox1 === "o") && (imgBox4 && imgBox4 === "o") && (imgBox7 && imgBox7 === "o")) ||
-            ((imgBox2 && imgBox2 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox8 && imgBox8 === "o")) ||
-            ((imgBox3 && imgBox3 === "o") && (imgBox6 && imgBox6 === "o") && (imgBox9 && imgBox9 === "o")) ||
-            ((imgBox1 && imgBox1 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox9 && imgBox9 === "o")) ||
-            ((imgBox3 && imgBox3 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox7 && imgBox7 === "o"))) {
+            // } else if (turn === 9) {
+            //     //Display winner div with tie text
+            //     var winner = document.querySelector(".winner");
+            //     winner.style.display = "block";
+            //     document.querySelector(".text").innerHTML = "TIE GAME!! NO ONE WINS!";
+            // }
+            // if all the variables match up for o
+            if (((imgBox1 && imgBox1 === "o") && (imgBox2 && imgBox2 === "o") && (imgBox3 && imgBox3 === "o")) ||
+                ((imgBox4 && imgBox4 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox6 && imgBox6 === "o")) ||
+                ((imgBox7 && imgBox7 === "o") && (imgBox8 && imgBox8 === "o") && (imgBox9 && imgBox9 === "o")) ||
+                ((imgBox1 && imgBox1 === "o") && (imgBox4 && imgBox4 === "o") && (imgBox7 && imgBox7 === "o")) ||
+                ((imgBox2 && imgBox2 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox8 && imgBox8 === "o")) ||
+                ((imgBox3 && imgBox3 === "o") && (imgBox6 && imgBox6 === "o") && (imgBox9 && imgBox9 === "o")) ||
+                ((imgBox1 && imgBox1 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox9 && imgBox9 === "o")) ||
+                ((imgBox3 && imgBox3 === "o") && (imgBox5 && imgBox5 === "o") && (imgBox7 && imgBox7 === "o"))) {
 
-            //display winner div for o
-            var winner = document.querySelector(".winner");
-            winner.style.display = "block";
-            const changeName = document.getElementById('nameP2').value;
-            document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
+                //display winner div for o
+                var winner = document.querySelector(".winner");
+                winner.style.display = "block";
+                const changeName = document.getElementById('nameP2').value;
+                document.querySelector(".text").innerHTML = `${changeName} WINS!!!`;
 
+            }
         }
         //  if statement for "0" CAT GAME!
         else if (turn === 9) {
